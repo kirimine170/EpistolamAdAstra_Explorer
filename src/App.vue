@@ -1,19 +1,21 @@
 <template>
   <v-app>
     <v-main>
-      <TopPage></TopPage>
+      <navigationBar></navigationBar>
+
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import TopPage from './components/TopPage.vue'
+import navigationBar from '@/components/utils/NavigationBar.vue'
 
 export default {
   name: 'App',
 
   components: {
-    TopPage,
+    navigationBar,
   },
 
   data: () => ({
