@@ -1,7 +1,14 @@
 <template>
-    <h1>Kurumichan!!!!!</h1>
+    <CreateMessage />
 </template>
 
 <script>
+import CreateMessage from '../components/messages/CreateMessage.vue'
+
+export default {
+    components: {
+        CreateMessage,
+    },
+}
 
 </script>
