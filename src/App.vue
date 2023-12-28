@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main class="bg-[#0f3460]">
       <navigationBar></navigationBar>
 
       <router-view />
