@@ -4,7 +4,8 @@
         <v-row>
             <v-col style="display: flex; align-items: stretch;">
                 <!-- TODO このカード、本当はコンポーネントにまとめた方がいいかも。 -->
-                <v-card @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" class="mode p-5" id="fireworks">
+                <v-card @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" @click="onClick" class="mode p-5"
+                    id="fireworks">
                     <v-img src="/src/assets/img/fireworks.png">
                         <v-card-title class="text-[#E5E5E5] text-2xl">花火</v-card-title>
                     </v-img>
@@ -17,7 +18,7 @@
                 </v-card>
             </v-col>
             <v-col style="display: flex; align-items: stretch;">
-                <v-card @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" class="mode p-5" id="letter">
+                <v-card @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" @click="onClick" class="p-5" id="letter">
                     <v-img src="/src/assets/img/letter.png">
                         <v-card-title class="text-[#E5E5E5] text-2xl">手紙</v-card-title>
                     </v-img>
@@ -30,7 +31,7 @@
 
             </v-col>
             <v-col style="display: flex; align-items: stretch;">
-                <v-card @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" class="mode p-5" id="noticeboard">
+                <v-card @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" @click="onClick" class="p-5" id="noticeboard">
                     <v-img src="/src/assets/img/noticeboard.png">
                         <v-card-title class="text-[#E5E5E5] text-2xl">掲示板</v-card-title>
                     </v-img>
@@ -74,18 +75,25 @@ export default {
     },
     methods: {
         onMouseEnter(event) {
+            //event.target.style.Transition = 'transform 0.5s ease-in-out';
             event.target.style.transform = 'translateY(-3%) rotate(1deg)';
-            event.target.style.Transition = 'transform 0.5s ease-in-out';
             console.log(event.target.id);
         },
         onMouseLeave(event) {
             event.target.style.transform = '';
         },
+        onClick(event) {
+            console.log(event.currentTarget.id);
+            event.currentTarget.style = 'z-index: 100'
+            event.currentTarget.style.transform = 'scale(2.0)';
+        }
     },
 }
 </script>
 <style>
-.mode {
-    transition: transform 0.25s ease-in-out;
+#fireworks,
+#letter,
+#noticeboard {
+    transition: transform 0.3s ease-in-out;
 }
 </style>
